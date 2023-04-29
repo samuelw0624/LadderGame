@@ -70,7 +70,7 @@ public partial class @Player1Controller : IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Equip02"",
@@ -79,7 +79,7 @@ public partial class @Player1Controller : IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Equip03"",
@@ -88,12 +88,30 @@ public partial class @Player1Controller : IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Repair"",
                     ""type"": ""Button"",
                     ""id"": ""f01c6a16-8fa1-4d73-9947-abb7d9a38220"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Climb_Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b760c0e-8aa2-4489-8cf1-3ccc85b81dbc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Climb_Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""82e7b71e-d3bd-4884-b4ad-fe01cd0d0273"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -199,6 +217,28 @@ public partial class @Player1Controller : IInputActionCollection2, IDisposable
                     ""action"": ""Climb_Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b1d22da-60cd-459a-a2c7-f2cb5699c268"",
+                    ""path"": ""<XInputController>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Climb_Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b2c5ff69-ec43-4c10-bd7e-5df7c4ce113a"",
+                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Climb_Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -215,6 +255,8 @@ public partial class @Player1Controller : IInputActionCollection2, IDisposable
         m_Gameplay_Equip02 = m_Gameplay.FindAction("Equip02", throwIfNotFound: true);
         m_Gameplay_Equip03 = m_Gameplay.FindAction("Equip03", throwIfNotFound: true);
         m_Gameplay_Repair = m_Gameplay.FindAction("Repair", throwIfNotFound: true);
+        m_Gameplay_Climb_Up = m_Gameplay.FindAction("Climb_Up", throwIfNotFound: true);
+        m_Gameplay_Climb_Down = m_Gameplay.FindAction("Climb_Down", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,6 +324,8 @@ public partial class @Player1Controller : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Equip02;
     private readonly InputAction m_Gameplay_Equip03;
     private readonly InputAction m_Gameplay_Repair;
+    private readonly InputAction m_Gameplay_Climb_Up;
+    private readonly InputAction m_Gameplay_Climb_Down;
     public struct GameplayActions
     {
         private @Player1Controller m_Wrapper;
@@ -294,6 +338,8 @@ public partial class @Player1Controller : IInputActionCollection2, IDisposable
         public InputAction @Equip02 => m_Wrapper.m_Gameplay_Equip02;
         public InputAction @Equip03 => m_Wrapper.m_Gameplay_Equip03;
         public InputAction @Repair => m_Wrapper.m_Gameplay_Repair;
+        public InputAction @Climb_Up => m_Wrapper.m_Gameplay_Climb_Up;
+        public InputAction @Climb_Down => m_Wrapper.m_Gameplay_Climb_Down;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -327,6 +373,12 @@ public partial class @Player1Controller : IInputActionCollection2, IDisposable
                 @Repair.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRepair;
                 @Repair.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRepair;
                 @Repair.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRepair;
+                @Climb_Up.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClimb_Up;
+                @Climb_Up.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClimb_Up;
+                @Climb_Up.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClimb_Up;
+                @Climb_Down.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClimb_Down;
+                @Climb_Down.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClimb_Down;
+                @Climb_Down.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnClimb_Down;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -355,6 +407,12 @@ public partial class @Player1Controller : IInputActionCollection2, IDisposable
                 @Repair.started += instance.OnRepair;
                 @Repair.performed += instance.OnRepair;
                 @Repair.canceled += instance.OnRepair;
+                @Climb_Up.started += instance.OnClimb_Up;
+                @Climb_Up.performed += instance.OnClimb_Up;
+                @Climb_Up.canceled += instance.OnClimb_Up;
+                @Climb_Down.started += instance.OnClimb_Down;
+                @Climb_Down.performed += instance.OnClimb_Down;
+                @Climb_Down.canceled += instance.OnClimb_Down;
             }
         }
     }
@@ -369,5 +427,7 @@ public partial class @Player1Controller : IInputActionCollection2, IDisposable
         void OnEquip02(InputAction.CallbackContext context);
         void OnEquip03(InputAction.CallbackContext context);
         void OnRepair(InputAction.CallbackContext context);
+        void OnClimb_Up(InputAction.CallbackContext context);
+        void OnClimb_Down(InputAction.CallbackContext context);
     }
 }

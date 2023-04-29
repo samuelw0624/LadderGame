@@ -12,7 +12,11 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     float climbValue;
 
-    Renderer renderer;
+    public int colorNumber;
+
+    bool isUp;
+
+    Renderer rend;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-        renderer = this.GetComponent<Renderer>();
+        rend = this.GetComponent<Renderer>();
 
     }
 
@@ -39,22 +43,20 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-
-        //climb function
         if (controls.Gameplay.Climb_Left.triggered)
         {
-            controls.Gameplay.Climb_Left.performed += ClimbLeft;
+            controls.Gameplay.Climb_Left.performed += ClimbUp;
 
-        } else 
+        }
+        else
         {
             controls.Gameplay.Climb_Left.canceled += ctx => climbValue = 0;
 
         }
 
-
         if (controls.Gameplay.Climb_Right.triggered)
         {
-            controls.Gameplay.Climb_Right.performed += ClimbRight;
+            controls.Gameplay.Climb_Right.performed += ClimbUp;
 
         }
         else
@@ -63,8 +65,8 @@ public class PlayerController : MonoBehaviour
 
         }
 
+     
 
-        
         if (controls.Gameplay.Equip01.triggered)
         {
             controls.Gameplay.Equip01.performed += Equip1;
@@ -87,31 +89,29 @@ public class PlayerController : MonoBehaviour
 
     void Equip1(InputAction.CallbackContext context)
     {
-        renderer.material.color = Color.yellow;
+        rend.material.color = Color.yellow;
         Debug.Log("1");
+        colorNumber = 1;
     }
     void Equip2(InputAction.CallbackContext context)
     {
-        renderer.material.color = Color.green;
+        rend.material.color = Color.green;
         Debug.Log("2");
+        colorNumber = 2;
     }
     void Equip3(InputAction.CallbackContext context)
     {
-        renderer.material.color = Color.red;
+        rend.material.color = Color.red;
         Debug.Log("3");
+        colorNumber = 3;
     }
 
-    private void ClimbLeft(InputAction.CallbackContext context)
+    private void ClimbUp(InputAction.CallbackContext context)
     {
         climbValue = 1;
         
     }
 
-    private void ClimbRight(InputAction.CallbackContext context)
-    {
-        climbValue = 1;
-
-    }
 
 
     private void Hold(InputAction.CallbackContext context)

@@ -48,7 +48,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Equip02",
@@ -57,7 +57,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Equip03",
@@ -66,12 +66,30 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Repair",
                     "type": "Button",
                     "id": "f01c6a16-8fa1-4d73-9947-abb7d9a38220",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Climb_Up",
+                    "type": "Button",
+                    "id": "4b760c0e-8aa2-4489-8cf1-3ccc85b81dbc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Climb_Down",
+                    "type": "Button",
+                    "id": "82e7b71e-d3bd-4884-b4ad-fe01cd0d0273",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -175,6 +193,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Climb_Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b1d22da-60cd-459a-a2c7-f2cb5699c268",
+                    "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Climb_Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2c5ff69-ec43-4c10-bd7e-5df7c4ce113a",
+                    "path": "<XInputController>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Climb_Down",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
