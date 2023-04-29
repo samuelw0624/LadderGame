@@ -15,10 +15,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Move",
+                    "name": "Move_X",
                     "type": "PassThrough",
                     "id": "fb3639c7-e723-4494-9f2b-1a53c656510d",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -86,22 +86,11 @@
                 {
                     "name": "",
                     "id": "926d1d9b-40c5-4202-ab13-b50dc95f918c",
-                    "path": "<XInputController>/leftStick/left",
+                    "path": "<XInputController>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "82aa406f-88ef-42f3-ac9e-d850c0ba697b",
-                    "path": "<XInputController>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
+                    "action": "Move_X",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
