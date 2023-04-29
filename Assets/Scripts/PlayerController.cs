@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     float climbValue;
 
+    Renderer renderer;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,6 +31,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        renderer = this.GetComponent<Renderer>();
+
     }
 
 
@@ -60,16 +64,17 @@ public class PlayerController : MonoBehaviour
         }
 
 
+        
         if (controls.Gameplay.Equip01.triggered)
         {
-            controls.Gameplay.Climb_Left.performed += Equip1;
+            controls.Gameplay.Equip01.performed += Equip1;
         } else if (controls.Gameplay.Equip02.triggered)
         {
-            controls.Gameplay.Climb_Left.performed += Equip2;
+            controls.Gameplay.Equip02.performed += Equip2;
         }
         else if (controls.Gameplay.Equip03.triggered)
         {
-            controls.Gameplay.Climb_Left.performed += Equip3;
+            controls.Gameplay.Equip03.performed += Equip3;
         }
 
 
@@ -82,14 +87,17 @@ public class PlayerController : MonoBehaviour
 
     void Equip1(InputAction.CallbackContext context)
     {
+        renderer.material.color = Color.yellow;
         Debug.Log("1");
     }
     void Equip2(InputAction.CallbackContext context)
     {
+        renderer.material.color = Color.green;
         Debug.Log("2");
     }
     void Equip3(InputAction.CallbackContext context)
     {
+        renderer.material.color = Color.red;
         Debug.Log("3");
     }
 
