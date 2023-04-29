@@ -6,31 +6,40 @@
             "id": "c36803d6-494e-4583-84ad-347a27cb42c0",
             "actions": [
                 {
-                    "name": "Climb",
+                    "name": "Climb_Left",
                     "type": "Button",
                     "id": "66c9b3ec-c711-4e0b-a7af-fd1e5d91242b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Climb_Right",
+                    "type": "Button",
+                    "id": "1eb8f6dd-c325-475f-a8e5-31c6d7aa05ef",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Move_X",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "fb3639c7-e723-4494-9f2b-1a53c656510d",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Hold",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "1e726c96-68a3-4e67-be64-1686f0848237",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Equip01",
@@ -58,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Repair",
+                    "type": "Button",
+                    "id": "f01c6a16-8fa1-4d73-9947-abb7d9a38220",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -68,18 +86,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Climb",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9e8bf63c-9bdf-46c1-ac8b-02203d4f26e7",
-                    "path": "<XInputController>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Climb",
+                    "action": "Climb_Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -98,7 +105,7 @@
                     "name": "",
                     "id": "20ed4670-415c-477a-9fd4-b073ffb9bd5e",
                     "path": "<XInputController>/leftTrigger",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Hold",
@@ -109,7 +116,7 @@
                     "name": "",
                     "id": "6e033450-f296-4dd9-aae0-8b271675cfc7",
                     "path": "<XInputController>/rightTrigger",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Hold",
@@ -146,6 +153,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Equip03",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "090be448-c328-4301-87af-2852dfb6f0c1",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Repair",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47dedb26-7ad3-45b1-b83e-c81a8b6794d1",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Climb_Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
