@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repairSpots: {fileID: 6170253837257478015, guid: 3af3f599c69693c488d8a99837636fbb, type: 3}
-  spawnRate: 2
+  spawnRate: 10
 --- !u!4 &657237576
 Transform:
   m_ObjectHideFlags: 0
